@@ -1,22 +1,99 @@
-
-w=param("ear_right_width",80.0)
-h=param("ear_right_height",82.0)
+w=param("ear_right_width",80.0)  # Circular outside diameter.
+h=param("ear_right_height",82.0)  # Existing mounting top height in the ear frame.
 t=param("ear_right_thickness",12.0)
 rim=param("ear_right_rim",2.0)
-# Fan contour traced by proportion from reference_photo.
-pts=[(-.50,.58),(-.23,.90),(.06,1),(.30,.91),(.46,.66),(.50,.34),(.43,.15),(.20,.04),(-.08,0),(-.37,.12)]
-face=Face(Wire([Spline(*[(x*w*1,0,z*h) for x,z in pts],periodic=True)]))
-bb=face.bounding_box()
-face=scale(face,by=(w/bb.size.X,1,h/bb.size.Z))
-bb=face.bounding_box()
-face=Pos(-(bb.min.X+bb.max.X)/2,0,-bb.min.Z)*face
-small=Pos(0,0,h/2)*scale(Pos(0,0,-h/2)*face,by=(1-2*rim/w,1,1-2*rim/h))
-ear=loft([Pos(0,-t/2,0)*small,Pos(0,-t/2+rim,0)*face,Pos(0,t/2-rim,0)*face,Pos(0,t/2,0)*small])
+recess=param("ear_right_recess_depth",4.5)
+spread=param("ear_right_recess_spread",0.55)
+assert 0<rim<min(w/4,t/2) and 0<recess<t and 0<spread<1
+radius=w/2
+inner_radius=radius-rim
+front=-t/2
+back=t/2
+# Degree-seven profile extends the depression into the outer shoulder, including the upper-outside region.
+# First and second radial derivatives vanish at the centre and outer face rim.
+# Both faces follow the same displacement, keeping 12 mm axial material thickness.
+front_points=[(i*inner_radius/7,front+recess*q,0) for i,q in enumerate([1,1,1,1,spread,0,0,0])]
+back_points=[(x,y+t,z) for x,y,z in reversed(front_points)]
+assert all(abs(b[1]-a[1]-t)<1e-9 for a,b in zip(front_points,reversed(back_points)))
+profile=Wire([
+    Bezier(*front_points).edge(),
+    ThreePointArc((inner_radius,front,0),(inner_radius+rim*2**-.5,front+rim*(1-2**-.5),0),(radius,front+rim,0)).edge(),
+    Edge.make_line((radius,front+rim,0),(radius,back-rim,0)),
+    ThreePointArc((radius,back-rim,0),(inner_radius+rim*2**-.5,back-rim*(1-2**-.5),0),(inner_radius,back,0)).edge(),
+    Bezier(*back_points).edge(),
+    Edge.make_line((0,back+recess,0),(0,front+recess,0))
+])
+ear=revolve(Face(profile),axis=Axis.Y)
+assert ear.is_valid and len(ear.solids())==1
 bb=ear.bounding_box()
-ear=scale(ear,by=(w/bb.size.X,t/bb.size.Y,h/bb.size.Z))
-bb=ear.bounding_box()
-ear=Pos(-(bb.min.X+bb.max.X)/2,-(bb.min.Y+bb.max.Y)/2,-bb.min.Z)*ear
+assert abs(bb.size.X-w)<0.001 and abs(bb.size.Z-w)<0.001
 
+# Directional shoulder depression: strongest above and outward, smoothly fading around the ear.
+# Reuse the exact revolved NURBS main faces; only their Y poles move.
+# Three unchanged radial rows at both ends preserve the centre and rim derivatives.
+from OCP.BRep import BRep_Tool
+from OCP.BRepTools import BRepTools
+from OCP.Geom import Geom_RectangularTrimmedSurface
+from OCP.GeomConvert import GeomConvert
+from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace, BRepBuilderAPI_Sewing, BRepBuilderAPI_MakeSolid
+from OCP.TopoDS import TopoDS
+from OCP.BRepLib import BRepLib
+from math import sqrt
+upper_recess=param("ear_right_upper_outer_recess",1.0)
+assert 0<=upper_recess<=rim
+outward=1
+radial_weights=[0,0,0,0,0,0,0.4,1,1,0,0,0]
+sewing=BRepBuilderAPI_Sewing(1e-6)
+changed=0
+main_poles=[]
+for face in ear.faces():
+    bounds=face.bounding_box()
+    # Identify the two degree-seven main faces using their parameter-derived span.
+    if abs(bounds.size.X-2*inner_radius)<0.01 and abs(bounds.size.Z-2*inner_radius)<0.01 and abs(bounds.size.Y-recess)<0.01:
+        u0,u1,v0,v1=BRepTools.UVBounds_s(face.wrapped)
+        original=BRep_Tool.Surface_s(face.wrapped)
+        surf=GeomConvert.SurfaceToBSplineSurface_s(Geom_RectangularTrimmedSurface(original,u0,u1,v0,v1))
+        assert surf.VDegree()==7
+        surf.IncreaseDegree(surf.UDegree(),11)
+        base=surf.Copy()
+        changes=[]
+        for j in range(1,surf.NbVPoles()+1):
+            rbase=sqrt(surf.Pole(1,j).X()**2+surf.Pole(1,j).Z()**2)
+            index=round(rbase/inner_radius*11)
+            radial=radial_weights[index]
+            for i in range(1,surf.NbUPoles()+1):
+                p=surf.Pole(i,j)
+                # Affine harmonic in the exact rational circle gives a smooth periodic direction weight.
+                angular=0.5*(1+(outward*p.X()+p.Z())/(sqrt(2)*rbase)) if rbase>1e-8 else 0
+                dy=radial*angular
+                changes.append((i,j,p.Y(),dy))
+                p.SetY(p.Y()+dy)
+                surf.SetPole(i,j,p)
+        peak=max(surf.Value(u0+(u1-u0)*a/72,v0+(v1-v0)*b/80).Y()-base.Value(u0+(u1-u0)*a/72,v0+(v1-v0)*b/80).Y() for a in range(73) for b in range(81))
+        assert peak>0
+        for i,j,y,dy in changes:
+            p=surf.Pole(i,j)
+            p.SetY(y+dy*upper_recess/peak)
+            surf.SetPole(i,j,p)
+        main_poles.append({(round(surf.Pole(i,j).X(),6),round(surf.Pole(i,j).Z(),6)):surf.Pole(i,j).Y() for i in range(1,surf.NbUPoles()+1) for j in range(1,surf.NbVPoles()+1)})
+        newface=BRepBuilderAPI_MakeFace(surf,u0,u1,v0,v1,1e-7).Face()
+        newface.Orientation(face.wrapped.Orientation())
+        sewing.Add(newface)
+        changed+=1
+    else:
+        sewing.Add(face.wrapped)
+assert changed==2
+assert set(main_poles[0])==set(main_poles[1])
+assert all(abs(abs(main_poles[0][key]-main_poles[1][key])-t)<1e-5 for key in main_poles[0])
+sewing.Perform()
+shell=TopoDS.Shell_s(sewing.SewedShape())
+solid=BRepBuilderAPI_MakeSolid(shell).Solid()
+assert BRepLib.OrientClosedSolid_s(solid)
+ear=Solid(solid)
+assert ear.is_valid and len(ear.solids())==1
+print("Upper-outside rearward depression amplitude:",upper_recess,"mm; front and back use identical displacement.")
+
+ear=Pos(0,0,h-radius)*ear
 # Ear root follows the host shell exterior, so it does not protrude into storage.
 bw=param("body_width",180.0)
 bd=param("body_depth",160.0)
@@ -25,7 +102,24 @@ sx=param("ear_right_shell_center_x",-70.0)
 sy=param("ear_right_shell_center_y",-5.0)
 sz=param("ear_right_shell_base_z",-118.0)
 host_profile=[(0,.36,.42),(.025,.65,.64),(.095,.89,.87),(.23,1,1),(.48,.94,.96),(.70,.83,.86),(.84,.75,.75),(.92,.60,.58),(.975,.35,.32),(1,.04,.04)]
-host=loft([Pos(sx,sy,sz+z*bh)*Ellipse(bw/2*rx,bd/2*ry) for z,rx,ry in host_profile])
+body_lower_front_extension=param("body_lower_front_extension",5.0)
+def belly_weight(h):
+    # Smooth rise from the outer base, broad belly, then ease into the upper body.
+    def smooth(t):
+        t=max(0,min(1,t))
+        return t*t*t*(10+t*(-15+6*t))
+    return smooth(h/.095)*(1-smooth((h-.23)/.47))
+def belly_outer(width,depth,height):
+    sections=[]
+    for h,rx,ry in host_profile:
+        extension=body_lower_front_extension*belly_weight(h)
+        sections.append(Pos(0,-extension/2,h*height)*Ellipse(width/2*rx,depth/2*ry+extension/2))
+    result=loft(sections)
+    assert result.is_valid and len(result.solids())==1
+    return result
+
+host=Pos(sx,sy,sz)*belly_outer(bw,bd,bh)
 ear=ear-host
+assert ear.is_valid and len(ear.solids())==1
 ear.color=Color(.018,.018,.022)
 publish("ear_right",ear,"右侧大耳朵",material="resin")

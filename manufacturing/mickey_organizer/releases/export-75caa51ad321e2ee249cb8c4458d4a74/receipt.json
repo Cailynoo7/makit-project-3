@@ -1,0 +1,138 @@
+{
+  "designId": "mickey_organizer",
+  "revision": "7b49c0103d57555fb62fdaba00590bf8b5610749d5e12a24ab1d7490b01bffa4",
+  "schemaVersion": 2,
+  "exportId": "export-75caa51ad321e2ee249cb8c4458d4a74",
+  "generatedAt": "2026-10-02T14:03:40.203Z",
+  "designSha256": "73920c2a1f80a9d4cccc69e310400636c77dd9235f09da33fa2fec0006991840",
+  "role": "storage_box",
+  "stateHash": "79e95f0167334e71ebd0c7aca73d720d64bbbe1f7ffa465f398d1971e77bce53",
+  "stateManifest": {
+    "schemaVersion": 3,
+    "designId": "mickey_organizer",
+    "role": "storage_box",
+    "design": {
+      "revision": "7b49c0103d57555fb62fdaba00590bf8b5610749d5e12a24ab1d7490b01bffa4",
+      "designSha256": "f7b1404c45771937e95f663f078106102ddd2e1deeb1951823b260d4801e771a",
+      "manifestSha256": "d69a099ca2c23e4e1d5e02962c7306cc215028b4ab7ab8762f3998e9336c851b",
+      "stepSha256": "61f08b48fdc4c55878419964e94d74ab495ad2f1b59dcb1e195a15130cab8d26",
+      "pcbReleases": []
+    },
+    "brief": {
+      "path": "design/mickey_organizer/README.md",
+      "sha256": "ef47c092aa486bb442dc387d740260841a6710cc729d96101f104ee381ae9606"
+    },
+    "requirement": {
+      "artifactContractPath": "product/contract.json",
+      "artifactContractSha256": "160689f23ab1ce693c01b968ab76d4202cbe2a0e5642cbbd5da2cbd5270f4073",
+      "designRequirementSha256": "450efb0d448a1ca86f84997713acd2adeb70168153888816cd0254855daacb1d",
+      "inputs": [
+        {
+          "role": "external-reference",
+          "id": "opening_profile_photo",
+          "path": "product/references/uploads/20261002T095555281Z-1-20261002175135-409-3.jpg",
+          "sha256": "bbb75863110887942de892016382b82f4ee532f016338b192c76637d2d0cf467",
+          "sizeBytes": 64000
+        },
+        {
+          "role": "external-reference",
+          "id": "opening_redline",
+          "path": "product/references/uploads/20261002T101616379Z-1-20261002181324-411-3.png",
+          "sha256": "c34e07fddb44968980dade3974998780e31b97e0a0cef47afffdebc1bec79703",
+          "sizeBytes": 154401
+        },
+        {
+          "role": "external-reference",
+          "id": "opening_redline_v25",
+          "path": "product/references/uploads/20261002T130356875Z-1-20261002181324-411-3.png",
+          "sha256": "892063bb3a1d92a0a6f2b59c0c3437147d93af6add8cf07000c2aeaea4a1f285",
+          "sizeBytes": 204097
+        },
+        {
+          "role": "external-reference",
+          "id": "reference_photo",
+          "path": "product/references/uploads/20261002T035048670Z-1-1.png",
+          "sha256": "4c02eb17b9726c31c96616efddb2b0d4b743c91ab49a3682c9e1996e43805372",
+          "sizeBytes": 183966
+        }
+      ]
+    },
+    "delivery": {
+      "target": "visual_review",
+      "formats": [
+        "step"
+      ]
+    },
+    "stateHash": "79e95f0167334e71ebd0c7aca73d720d64bbbe1f7ffa465f398d1971e77bce53"
+  },
+  "buildArtifacts": {
+    "manifestSha256": "d69a099ca2c23e4e1d5e02962c7306cc215028b4ab7ab8762f3998e9336c851b",
+    "stepSha256": "61f08b48fdc4c55878419964e94d74ab495ad2f1b59dcb1e195a15130cab8d26"
+  },
+  "exportAlgorithm": {
+    "version": 1,
+    "bootstrapSha256": "ee3801d485ce9c36c94064620fc14c1fad29a20395abe3cd26ac51a72ac105d1"
+  },
+  "sourceHashes": {
+    "badge/badge": "8fab9fe9a560552a2e562a7826f0231ad80f9057f0cae947fdaede27d64d0117",
+    "body/body": "4eaff53e1f56526e42d37eebe5b307c10ab065421a5e382200957e17510ec94b",
+    "ear_left/ear_left": "4297f9bc0e6f0a7762fb3735323e25efd5d2cb9d620ab6de673a54b1c65464f3",
+    "ear_right/ear_right": "fdd7957d3527acb27a4bd1ef7461f4f47e81a6f272389d2c10d92d54293be400",
+    "leg_left/leg_left": "ea26e3ae5692ede02b12c72fd9240c0f1bc6ad4175eb8d251667cc00f1f6b6fb",
+    "leg_right/leg_right": "7bd35a5b2b5252297cc668f7f1a0f1641c4b7dd0f9cc7182186369ebfdda9842",
+    "shoe_left/shoe_left": "c688ba7a69b9d3abfe91759053df2c3f6c37c2305312db66e2f6f05b2c2336c7",
+    "shoe_right/shoe_right": "38bd8d6778ac5c5cde69a292dbee0c854f87f2d530bcb3de7cde31d0ae7141e9"
+  },
+  "assetHashes": {},
+  "shapeHashes": {
+    "badge": "6b23ed5610e7c085caa33963e7bf65e7dc35a8da83fced0d95872ac595c35e5d",
+    "body": "f46af67bd19b05c3d9a3cda75db994b45a230123b663e2f39fb6b9dc1fe7c690",
+    "ear_left": "1c21376de9cb3e92f35d31006b36f5b4880ba38b7fcfa44c25c124af9a6ce28c",
+    "ear_right": "6e47e9810a3acc6d6005835051371e61edc2f0de2b88cc3572311999e42b4233",
+    "leg_left": "e495b57480610a33fe1f5e72fab75a65d7ec4b1f3430a6c4d013e167ab074e09",
+    "leg_right": "e7042a219350232a55b4467fc597dfd9260fafcdabd1aa53e687916ce001c116",
+    "shoe_left": "017ad521b170ec47f73c0276aee2e48dd2324f735822372e37ca95afee25ba1d",
+    "shoe_right": "53560ee61743d917dab63155506c7c3e49ce5796d3e6f6ba7440123059a8d8b2",
+    "sole_left": "740203435ec51c8716e37d73051f6f438e49adf2faba68d95c44aae79a9cecfa",
+    "sole_right": "5f81f91ed49754ed8d76b64e226525577b88285cb0062cf9875508af2937537e"
+  },
+  "runtime": {
+    "manifestHash": "98cec734545be4d93d19c83d6d06b9b2bf2f3d7d1be0992e7fd04cc2f3bdec70",
+    "pythonVersion": "3.12.13",
+    "build123dVersion": "0.10.0",
+    "ocpVersion": "7.8.1.1.post1",
+    "cadpyHash": "eab6dc65ad496ee6860f3f3d9d8c9d9a5569c9c052c59081052894a8130ce5cf"
+  },
+  "artifacts": [
+    {
+      "path": "manufacturing/mickey_organizer/releases/export-75caa51ad321e2ee249cb8c4458d4a74/model.step",
+      "role": "model/step",
+      "sha256": "61f08b48fdc4c55878419964e94d74ab495ad2f1b59dcb1e195a15130cab8d26",
+      "sizeBytes": 7608771
+    }
+  ],
+  "interference": {
+    "summary": "No interference across 45 object pairs.",
+    "counts": {
+      "objects": 10,
+      "pairs": 45,
+      "exact": 7,
+      "cached": 2,
+      "interference": 0,
+      "undeclared": 0,
+      "over_budget": 0,
+      "undetermined": 0
+    },
+    "overlaps": []
+  },
+  "authority": {
+    "version": 1,
+    "algorithm": "hmac-sha256",
+    "keyId": "e9b55f87efef30a14ecc98dacc2991cb",
+    "projectId": "75f6be10-f41b-47d6-a00d-8f53e5e4e33c",
+    "receiptPath": "manufacturing/mickey_organizer/releases/export-75caa51ad321e2ee249cb8c4458d4a74/receipt.json",
+    "payloadSha256": "279fdadad26ab180edd160cd0c1568d5fc35c66ece00ed84cdde56fd7d277020",
+    "mac": "64d39e217a5d888f11710ec0b17beffcccc66835e5a3cdd7523311c50af1cb73"
+  },
+  "status": "handoff"
+}

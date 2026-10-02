@@ -4,8 +4,59 @@
   "deliverable_intent": "visual_draft",
   "summary": "按上传参考图复刻桌面无盖卡通收纳盒第一版",
   "required_interfaces": [],
-  "external_references": [{"id": "reference_photo", "source": "user_requested", "description": "用户外观照片及30×22×20.5cm和盒身19cm标注", "path": "product/references/uploads/20261002T035048670Z-1-1.png"}],
-  "assembly_story": {"installation": "双鞋平底放置桌面", "maintenance": "从前上方敞口取放与清洁", "user_access": ["前上方无盖收纳入口"]},
-  "cad": {"requirement": "required", "designs": [{"role": "storage_box", "design_id": "mickey_organizer", "description": "酒红盒身、黑耳朵、黄色鞋子的第一版外观模型", "delivery_target": "visual_review", "required_formats": ["step"], "interface_ids": [], "reference_ids": ["reference_photo"]}]},
+  "external_references": [
+    {
+      "id": "reference_photo",
+      "source": "user_requested",
+      "description": "用户外观照片及30×22×20.5cm和盒身19cm标注",
+      "path": "product/references/uploads/20261002T035048670Z-1-1.png"
+    },
+    {
+      "id": "opening_profile_photo",
+      "source": "user_requested",
+      "description": "新增侧前方照片，作为圆弧洞口和圆润入口轮廓参考",
+      "path": "product/references/uploads/20261002T095555281Z-1-20261002175135-409-3.jpg"
+    },
+    {
+      "id": "opening_redline",
+      "source": "user_requested",
+      "description": "用户在模型侧面标出的红色切割线，作为洞口扩大及平滑侧轮廓的主要参考",
+      "path": "product/references/uploads/20261002T101616379Z-1-20261002181324-411-3.png"
+    },
+    {
+      "id": "opening_redline_v25",
+      "source": "user_requested",
+      "description": "最新侧面截图红色弧线，作为洞口弧度进一步平滑的主要参考",
+      "path": "product/references/uploads/20261002T130356875Z-1-20261002181324-411-3.png"
+    }
+  ],
+  "assembly_story": {
+    "installation": "双鞋平底放置桌面",
+    "maintenance": "从前上方敞口取放与清洁",
+    "user_access": [
+      "前上方无盖收纳入口"
+    ]
+  },
+  "cad": {
+    "requirement": "required",
+    "designs": [
+      {
+        "role": "storage_box",
+        "design_id": "mickey_organizer",
+        "description": "酒红盒身、黑耳朵、黄色鞋子的第一版外观模型",
+        "delivery_target": "visual_review",
+        "required_formats": [
+          "step"
+        ],
+        "interface_ids": [],
+        "reference_ids": [
+          "reference_photo",
+          "opening_profile_photo",
+          "opening_redline",
+          "opening_redline_v25"
+        ]
+      }
+    ]
+  },
   "open_questions": []
 }

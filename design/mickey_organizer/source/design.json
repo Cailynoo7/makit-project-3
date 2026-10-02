@@ -12,7 +12,7 @@
           "target": "body",
           "order": 0,
           "path": "design/mickey_organizer/source/parts/body/000-body.py",
-          "sha256": "62c0cab86784cd5872cdfdb5ce3383a5c58ec4023e2dc40ba99f3587222ac788"
+          "sha256": "4eaff53e1f56526e42d37eebe5b307c10ab065421a5e382200957e17510ec94b"
         }
       ],
       "dependencies": []
@@ -26,7 +26,7 @@
           "target": "ear_left",
           "order": 0,
           "path": "design/mickey_organizer/source/parts/ear_left/000-ear_left.py",
-          "sha256": "a4d4f8fa17cab09518d779a45e29980c355c476430bea170842cba8fa7f95383"
+          "sha256": "4297f9bc0e6f0a7762fb3735323e25efd5d2cb9d620ab6de673a54b1c65464f3"
         }
       ],
       "dependencies": []
@@ -40,7 +40,7 @@
           "target": "ear_right",
           "order": 0,
           "path": "design/mickey_organizer/source/parts/ear_right/000-ear_right.py",
-          "sha256": "fe7c198ee59f049d2b54e69aac77fe9528e5c3b943984b3eb71d3de925ca4052"
+          "sha256": "fdd7957d3527acb27a4bd1ef7461f4f47e81a6f272389d2c10d92d54293be400"
         }
       ],
       "dependencies": []
@@ -54,7 +54,7 @@
           "target": "shoe_left",
           "order": 0,
           "path": "design/mickey_organizer/source/parts/shoe_left/000-shoe_left.py",
-          "sha256": "e8064455e850abec3bebf0992889f876a41eb354666489feb6d510bb1e24b747"
+          "sha256": "c688ba7a69b9d3abfe91759053df2c3f6c37c2305312db66e2f6f05b2c2336c7"
         }
       ],
       "dependencies": []
@@ -68,7 +68,7 @@
           "target": "shoe_right",
           "order": 0,
           "path": "design/mickey_organizer/source/parts/shoe_right/000-shoe_right.py",
-          "sha256": "2bf5fe36a34cc40ecc374dc45ef7105f3ba0a78684e0730bcfb6ab06f530fb04"
+          "sha256": "38bd8d6778ac5c5cde69a292dbee0c854f87f2d530bcb3de7cde31d0ae7141e9"
         }
       ],
       "dependencies": []
@@ -82,7 +82,7 @@
           "target": "leg_left",
           "order": 0,
           "path": "design/mickey_organizer/source/parts/leg_left/000-leg_left.py",
-          "sha256": "299b75832a9fba8ff3d7892c49b8b77c859b3e8e4be0eaa6495b9d9a6377303d"
+          "sha256": "ea26e3ae5692ede02b12c72fd9240c0f1bc6ad4175eb8d251667cc00f1f6b6fb"
         }
       ],
       "dependencies": []
@@ -96,7 +96,7 @@
           "target": "leg_right",
           "order": 0,
           "path": "design/mickey_organizer/source/parts/leg_right/000-leg_right.py",
-          "sha256": "cd80a2a1a1012510ff1946fc750b7c4a294809b2bbbca227bb4e3b8883f18d6b"
+          "sha256": "7bd35a5b2b5252297cc668f7f1a0f1641c4b7dd0f9cc7182186369ebfdda9842"
         }
       ],
       "dependencies": []
@@ -110,7 +110,7 @@
           "target": "badge",
           "order": 0,
           "path": "design/mickey_organizer/source/parts/badge/000-badge.py",
-          "sha256": "7648d191ea9503afcfdab0489db5c638425ecb7bb570081e339674100b65487c"
+          "sha256": "8fab9fe9a560552a2e562a7826f0231ad80f9057f0cae947fdaede27d64d0117"
         }
       ],
       "dependencies": []
@@ -123,7 +123,7 @@
       "label": "酒红收纳盒身",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "ed25c16cc9e5ead495f92cd56f4f59ac10a8c2afbec4bb1e292a1f1fd6445728",
+      "shapeHash": "f46af67bd19b05c3d9a3cda75db994b45a230123b663e2f39fb6b9dc1fe7c690",
       "transform": {
         "positionMm": [
           0,
@@ -150,12 +150,12 @@
       "label": "左侧大耳朵",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "f204b08c064671ace7a7f99ae023c1cff1250a502087b42d00f661757aefe05d",
+      "shapeHash": "1c21376de9cb3e92f35d31006b36f5b4880ba38b7fcfa44c25c124af9a6ce28c",
       "transform": {
         "positionMm": [
-          -70,
+          -74,
           5,
-          218
+          226
         ],
         "rotationDeg": [
           0,
@@ -177,12 +177,12 @@
       "label": "右侧大耳朵",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "b19615d44461a881c56428f6c8efe0f9ae2c411702a1ef930b226ea8ef6adf8f",
+      "shapeHash": "6e47e9810a3acc6d6005835051371e61edc2f0de2b88cc3572311999e42b4233",
       "transform": {
         "positionMm": [
-          70,
+          74,
           5,
-          218
+          226
         ],
         "rotationDeg": [
           0,
@@ -201,14 +201,41 @@
     {
       "id": "shoe_left",
       "target": "shoe_left",
-      "label": "左侧黄色鞋子",
+      "label": "左侧黄色鞋面",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "9eedc6882ad3e2e3a3ca2f7e61374967111716f67c9d9d1cbe08cd382dfd1936",
+      "shapeHash": "017ad521b170ec47f73c0276aee2e48dd2324f735822372e37ca95afee25ba1d",
       "transform": {
         "positionMm": [
           -52,
-          -20,
+          -15,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "sole_left",
+      "target": "shoe_left",
+      "label": "左侧黑色鞋底",
+      "material": "resin",
+      "kind": "generated",
+      "shapeHash": "740203435ec51c8716e37d73051f6f438e49adf2faba68d95c44aae79a9cecfa",
+      "transform": {
+        "positionMm": [
+          -52,
+          -15,
           0
         ],
         "rotationDeg": [
@@ -228,14 +255,41 @@
     {
       "id": "shoe_right",
       "target": "shoe_right",
-      "label": "右侧黄色鞋子",
+      "label": "右侧黄色鞋面",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "759f07c72eca64af18589f66e6a2e7f815b02ddbb459f1f142e5d09ed3d6ffd6",
+      "shapeHash": "53560ee61743d917dab63155506c7c3e49ce5796d3e6f6ba7440123059a8d8b2",
       "transform": {
         "positionMm": [
           52,
-          -20,
+          -15,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "sole_right",
+      "target": "shoe_right",
+      "label": "右侧黑色鞋底",
+      "material": "resin",
+      "kind": "generated",
+      "shapeHash": "5f81f91ed49754ed8d76b64e226525577b88285cb0062cf9875508af2937537e",
+      "transform": {
+        "positionMm": [
+          52,
+          -15,
           0
         ],
         "rotationDeg": [
@@ -258,11 +312,11 @@
       "label": "左侧短腿",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "380ca05b8859362e6ddbb8edc80137a389ab22e4c8ddaae449cb9a3843eb45a6",
+      "shapeHash": "e495b57480610a33fe1f5e72fab75a65d7ec4b1f3430a6c4d013e167ab074e09",
       "transform": {
         "positionMm": [
           -52,
-          0,
+          5,
           84
         ],
         "rotationDeg": [
@@ -285,11 +339,11 @@
       "label": "右侧短腿",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "834ce1b73f307be7994d26aaca7b74858c3914d84664c750084a30073a4360c6",
+      "shapeHash": "e7042a219350232a55b4467fc597dfd9260fafcdabd1aa53e687916ce001c116",
       "transform": {
         "positionMm": [
           52,
-          0,
+          5,
           84
         ],
         "rotationDeg": [
@@ -309,14 +363,14 @@
     {
       "id": "badge",
       "target": "badge",
-      "label": "银色圆饰",
+      "label": "银色球饰",
       "material": "stainless_steel",
       "kind": "generated",
-      "shapeHash": "1d19a949475066b8d1d467ed84d87cde581a51f419a1990c95ad3bb765e249c7",
+      "shapeHash": "6b23ed5610e7c085caa33963e7bf65e7dc35a8da83fced0d95872ac595c35e5d",
       "transform": {
         "positionMm": [
           0,
-          -80,
+          -91,
           135
         ],
         "rotationDeg": [
@@ -336,7 +390,7 @@
   ],
   "assets": [],
   "fits": [],
-  "updatedAt": "2026-10-02T06:38:11.321Z",
+  "updatedAt": "2026-10-02T14:03:40.203Z",
   "parameters": {
     "body": {
       "body_width": 180,
@@ -344,66 +398,85 @@
       "body_height": 190,
       "body_wall": 4.5,
       "body_floor": 4,
-      "body_opening_width": 132,
-      "body_opening_height": 122,
-      "body_opening_bottom": 57,
-      "body_seam_height": 50,
-      "body_seam_depth": 0.5,
+      "body_opening_height": 112.24,
       "body_cavity_floor_raise": 20,
       "body_cavity_blend": 12,
-      "body_lip_radius": 1.2
+      "body_lip_radius": 1.2,
+      "body_opening_top_anchor": 181.28838915004377,
+      "body_opening_profile_bulge": 1,
+      "body_lower_front_extension": 5,
+      "body_bottom_blend_height": 12,
+      "body_bottom_bulge": 3
     },
     "ear_left": {
       "ear_left_width": 80,
       "ear_left_height": 82,
       "ear_left_thickness": 12,
-      "ear_left_rim": 2,
+      "ear_left_rim": 4,
       "body_width": 180,
       "body_depth": 160,
       "body_height": 190,
-      "ear_left_shell_center_x": 70,
+      "ear_left_shell_center_x": 74,
       "ear_left_shell_center_y": -5,
-      "ear_left_shell_base_z": -118
+      "ear_left_shell_base_z": -126,
+      "ear_left_recess_depth": 4.5,
+      "ear_left_recess_spread": 0.55,
+      "ear_left_upper_outer_recess": 1,
+      "body_lower_front_extension": 5
     },
     "ear_right": {
       "ear_right_width": 80,
       "ear_right_height": 82,
       "ear_right_thickness": 12,
-      "ear_right_rim": 2,
+      "ear_right_rim": 4,
       "body_width": 180,
       "body_depth": 160,
       "body_height": 190,
-      "ear_right_shell_center_x": -70,
+      "ear_right_shell_center_x": -74,
       "ear_right_shell_center_y": -5,
-      "ear_right_shell_base_z": -118
+      "ear_right_shell_base_z": -126,
+      "ear_right_recess_depth": 4.5,
+      "ear_right_recess_spread": 0.55,
+      "ear_right_upper_outer_recess": 1,
+      "body_lower_front_extension": 5
     },
     "shoe_left": {
       "shoe_left_width": 98,
       "shoe_left_length": 130,
       "shoe_left_toe_height": 72,
       "shoe_left_sole_height": 8,
-      "shoe_left_sole_groove_depth": 0.6,
-      "shoe_left_cuff_width": 53,
-      "shoe_left_cuff_depth": 56,
+      "shoe_left_cuff_width": 58.3,
+      "shoe_left_cuff_depth": 61.6,
       "shoe_left_cuff_height": 14,
       "shoe_left_cuff_y": 20,
       "shoe_left_cuff_base_z": 70,
-      "shoe_left_sole_groove_height": 0.8,
-      "shoe_left_heel_blend": 6
+      "shoe_left_toe_bump": 8,
+      "shoe_left_fullness": 1.6,
+      "shoe_left_heel_width_ratio": 0.94,
+      "shoe_left_neck_width": 51,
+      "shoe_left_neck_depth": 54,
+      "shoe_left_front_fullness": 1.4,
+      "shoe_left_heel_extension": 5,
+      "shoe_left_sole_round_radius": 4
     },
     "shoe_right": {
       "shoe_right_width": 98,
       "shoe_right_length": 130,
       "shoe_right_toe_height": 72,
       "shoe_right_sole_height": 8,
-      "shoe_right_sole_groove_depth": 0.6,
-      "shoe_right_cuff_width": 53,
-      "shoe_right_cuff_depth": 56,
+      "shoe_right_cuff_width": 58.3,
+      "shoe_right_cuff_depth": 61.6,
       "shoe_right_cuff_height": 14,
       "shoe_right_cuff_y": 20,
       "shoe_right_cuff_base_z": 70,
-      "shoe_right_sole_groove_height": 0.8,
-      "shoe_right_heel_blend": 6
+      "shoe_right_toe_bump": 8,
+      "shoe_right_fullness": 1.6,
+      "shoe_right_heel_width_ratio": 0.94,
+      "shoe_right_neck_width": 51,
+      "shoe_right_neck_depth": 54,
+      "shoe_right_front_fullness": 1.4,
+      "shoe_right_heel_extension": 5,
+      "shoe_right_sole_round_radius": 4
     },
     "leg_left": {
       "leg_left_width": 43,
@@ -413,8 +486,11 @@
       "body_depth": 160,
       "body_height": 190,
       "leg_left_shell_center_x": 52,
-      "leg_left_shell_center_y": 0,
-      "leg_left_shell_base_z": 16
+      "leg_left_shell_center_y": -5,
+      "leg_left_shell_base_z": 16,
+      "body_lower_front_extension": 5,
+      "body_bottom_blend_height": 12,
+      "body_bottom_bulge": 3
     },
     "leg_right": {
       "leg_right_width": 43,
@@ -424,18 +500,20 @@
       "body_depth": 160,
       "body_height": 190,
       "leg_right_shell_center_x": -52,
-      "leg_right_shell_center_y": 0,
-      "leg_right_shell_base_z": 16
+      "leg_right_shell_center_y": -5,
+      "leg_right_shell_base_z": 16,
+      "body_lower_front_extension": 5,
+      "body_bottom_blend_height": 12,
+      "body_bottom_bulge": 3
     },
     "badge": {
       "badge_width": 26,
-      "badge_height": 26,
-      "badge_depth": 10,
       "body_width": 180,
       "body_depth": 160,
       "body_height": 190,
-      "badge_shell_center_y": 80,
-      "badge_shell_base_z": -35
+      "badge_shell_center_y": 91,
+      "badge_shell_base_z": -35,
+      "body_lower_front_extension": 5
     }
   }
 }
