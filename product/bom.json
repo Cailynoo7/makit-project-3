@@ -1,0 +1,42 @@
+{
+  "bom_ready": true,
+  "items": [
+    {
+      "id": "body",
+      "name": "酒红色空腔盒身",
+      "quantity": 1,
+      "type": "custom_mechanical",
+      "selection_reason": "参考图190 mm高盒身，默认3 mm壁厚"
+    },
+    {
+      "id": "ears",
+      "name": "黑色圆润大耳朵",
+      "quantity": 2,
+      "type": "custom_mechanical"
+    },
+    {
+      "id": "legs",
+      "name": "酒红色短腿",
+      "quantity": 2,
+      "type": "custom_mechanical"
+    },
+    {
+      "id": "shoes",
+      "name": "黄色圆头厚底鞋及鞋口",
+      "quantity": 2,
+      "type": "custom_mechanical"
+    },
+    {
+      "id": "button",
+      "name": "银色圆形装饰",
+      "quantity": 1,
+      "type": "custom_mechanical"
+    }
+  ],
+  "notes": [
+    "纯机械外观模型，无电子模块、接线和采购标准件。分色不代表已验证生产装配。"
+  ],
+  "requirements_digest": "a5af2604cb5e8f47f0074ade2de165c95ca26ac85f17ab3aef0ec508cf2c04a1",
+  "schema_version": 1,
+  "status": "ready"
+}

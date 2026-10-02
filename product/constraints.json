@@ -1,0 +1,13 @@
+{
+  "units": "mm",
+  "envelope": {"width": 220, "depth": 205, "height": 300},
+  "body_height": 190,
+  "wall_thickness": 3,
+  "base_thickness": 4,
+  "front_axis": "-Y",
+  "up_axis": "+Z",
+  "electronics": [],
+  "fasteners": [],
+  "connection_strategy": "free fused cosmetic components",
+  "reference": "reference_photo"
+}

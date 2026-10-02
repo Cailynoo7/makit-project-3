@@ -1,0 +1,17 @@
+{
+  "requirements": {
+    "product_class": {"value": "mechanical", "source": "user"},
+    "purpose": {"value": "桌面无盖小杂物收纳盒", "source": "user"},
+    "appearance": {"value": "严格依据参考图复刻酒红圆鼓盒身、前上方敞口、大黑耳、黄色饱满鞋子和银色圆饰", "source": "user"},
+    "envelope_mm": {"value": {"width": 220, "depth": 205, "height": 300}, "source": "user"},
+    "body_height_mm": {"value": 190, "source": "user"},
+    "closure": {"value": "无盖，前上方固定开放入口", "source": "user"},
+    "wall_thickness_mm": {"value": 3, "source": "default"},
+    "base_thickness_mm": {"value": 4, "source": "default"},
+    "back_shape": {"value": "按照片轮廓补全对称圆润背面", "source": "default"},
+    "delivery": {"value": "第一版参数化外观模型和STEP", "source": "user"},
+    "base_board": {"value": "none; passive mechanical storage", "source": "default"},
+    "assembly": {"value": "分色组件采用融合连接表达，不含螺丝；用于外观设计评审", "source": "default"}
+  },
+  "open_questions": []
+}

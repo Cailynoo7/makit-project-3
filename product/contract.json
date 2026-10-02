@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "artifact_level": "standalone_part",
+  "deliverable_intent": "visual_draft",
+  "summary": "按上传参考图复刻桌面无盖卡通收纳盒第一版",
+  "required_interfaces": [],
+  "external_references": [{"id": "reference_photo", "source": "user_requested", "description": "用户外观照片及30×22×20.5cm和盒身19cm标注", "path": "product/references/uploads/20261002T035048670Z-1-1.png"}],
+  "assembly_story": {"installation": "双鞋平底放置桌面", "maintenance": "从前上方敞口取放与清洁", "user_access": ["前上方无盖收纳入口"]},
+  "cad": {"requirement": "required", "designs": [{"role": "storage_box", "design_id": "mickey_organizer", "description": "酒红盒身、黑耳朵、黄色鞋子的第一版外观模型", "delivery_target": "visual_review", "required_formats": ["step"], "interface_ids": [], "reference_ids": ["reference_photo"]}]},
+  "open_questions": []
+}
