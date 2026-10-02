@@ -1,13 +1,33 @@
 {
   "units": "mm",
-  "envelope": {"width": 220, "depth": 205, "height": 300},
+  "envelope": {
+    "width": 220,
+    "depth": 205,
+    "height": 300
+  },
   "body_height": 190,
-  "wall_thickness": 3,
+  "wall_thickness": 4.5,
+  "cavity_floor_raise": 20,
+  "cavity_blend_radius": 12,
+  "lip_roundover": 1.2,
+  "leg_axis_y": 0,
   "base_thickness": 4,
   "front_axis": "-Y",
   "up_axis": "+Z",
   "electronics": [],
   "fasteners": [],
   "connection_strategy": "free fused cosmetic components",
-  "reference": "reference_photo"
+  "reference": "reference_photo",
+  "shoe_length": 130,
+  "shoe_body_center_y": -20,
+  "shoe_cuff_axis_y": 0,
+  "working_envelope_measured_mm": {
+    "width": 220,
+    "depth": 166.005,
+    "height": 300
+  },
+  "working_envelope_note": "当前鞋型评审例外待用户选择；原envelope要求未更改。",
+  "opening_width": 132,
+  "opening_height": 122,
+  "opening_bottom": 57
 }

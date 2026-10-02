@@ -1,12 +1,12 @@
 {
-  "bom_ready": true,
+  "bom_ready": false,
   "items": [
     {
       "id": "body",
       "name": "酒红色空腔盒身",
       "quantity": 1,
       "type": "custom_mechanical",
-      "selection_reason": "参考图190 mm高盒身，默认3 mm壁厚"
+      "selection_reason": "参考图190 mm高盒身，壁厚4.5 mm，内底比初版抬高20 mm并以12 mm圆角平滑过渡；盒口132×122 mm、下沿局部Z57 mm、唇边圆角1.2 mm。"
     },
     {
       "id": "ears",
@@ -24,7 +24,8 @@
       "id": "shoes",
       "name": "黄色圆头厚底鞋及鞋口",
       "quantity": 2,
-      "type": "custom_mechanical"
+      "type": "custom_mechanical",
+      "selection_reason": "参考图圆鼓短靴外形；鞋身长130 mm、中心Y=-20 mm，鞋口与双腿中心Y=0；饱满鞋头鞋跟、8 mm厚底及细边线"
     },
     {
       "id": "button",
@@ -36,7 +37,7 @@
   "notes": [
     "纯机械外观模型，无电子模块、接线和采购标准件。分色不代表已验证生产装配。"
   ],
-  "requirements_digest": "a5af2604cb5e8f47f0074ade2de165c95ca26ac85f17ab3aef0ec508cf2c04a1",
+  "requirements_digest": "a72a5f546e0e80fd6037f5330edd91257e61fc318c30de49297991989f114227",
   "schema_version": 1,
-  "status": "ready"
+  "status": "draft"
 }

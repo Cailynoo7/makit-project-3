@@ -1,17 +1,112 @@
 {
   "requirements": {
-    "product_class": {"value": "mechanical", "source": "user"},
-    "purpose": {"value": "桌面无盖小杂物收纳盒", "source": "user"},
-    "appearance": {"value": "严格依据参考图复刻酒红圆鼓盒身、前上方敞口、大黑耳、黄色饱满鞋子和银色圆饰", "source": "user"},
-    "envelope_mm": {"value": {"width": 220, "depth": 205, "height": 300}, "source": "user"},
-    "body_height_mm": {"value": 190, "source": "user"},
-    "closure": {"value": "无盖，前上方固定开放入口", "source": "user"},
-    "wall_thickness_mm": {"value": 3, "source": "default"},
-    "base_thickness_mm": {"value": 4, "source": "default"},
-    "back_shape": {"value": "按照片轮廓补全对称圆润背面", "source": "default"},
-    "delivery": {"value": "第一版参数化外观模型和STEP", "source": "user"},
-    "base_board": {"value": "none; passive mechanical storage", "source": "default"},
-    "assembly": {"value": "分色组件采用融合连接表达，不含螺丝；用于外观设计评审", "source": "default"}
+    "product_class": {
+      "value": "mechanical",
+      "source": "user"
+    },
+    "purpose": {
+      "value": "桌面无盖小杂物收纳盒",
+      "source": "user"
+    },
+    "appearance": {
+      "value": "严格依据参考图复刻酒红圆鼓盒身、前上方敞口、大黑耳、黄色饱满鞋子和银色圆饰",
+      "source": "user"
+    },
+    "envelope_mm": {
+      "value": {
+        "width": 220,
+        "depth": 205,
+        "height": 300
+      },
+      "source": "user"
+    },
+    "body_height_mm": {
+      "value": 190,
+      "source": "user"
+    },
+    "closure": {
+      "value": "无盖，前上方固定开放入口",
+      "source": "user"
+    },
+    "wall_thickness_mm": {
+      "value": 4.5,
+      "source": "user"
+    },
+    "cavity_shape": {
+      "value": "内底上升、腔体变浅，内部曲面平滑过渡",
+      "source": "user"
+    },
+    "cavity_floor_raise_mm": {
+      "value": 20,
+      "source": "default"
+    },
+    "cavity_blend_radius_mm": {
+      "value": 12,
+      "source": "default"
+    },
+    "lip_roundover_mm": {
+      "value": 1.2,
+      "source": "default"
+    },
+    "leg_axis_y_mm": {
+      "value": 0,
+      "source": "user"
+    },
+    "ear_refinement": {
+      "value": "耳朵向外伸出并重新布尔裁切，保持参考图形态",
+      "source": "user"
+    },
+    "shoe_refinement": {
+      "value": "鞋头缩短并保持鼓鼓的饱满外形，鞋跟向后鼓出一点",
+      "source": "user"
+    },
+    "base_thickness_mm": {
+      "value": 4,
+      "source": "default"
+    },
+    "back_shape": {
+      "value": "按照片轮廓补全对称圆润背面",
+      "source": "default"
+    },
+    "delivery": {
+      "value": "第一版参数化外观模型和STEP",
+      "source": "user"
+    },
+    "base_board": {
+      "value": "none; passive mechanical storage",
+      "source": "default"
+    },
+    "assembly": {
+      "value": "分色组件采用融合连接表达，不含螺丝；用于外观设计评审",
+      "source": "default"
+    },
+    "shoe_position": {
+      "value": "鞋身后移对上双腿，鞋口中心与腿轴同处Y=0，严格按参考图重塑鞋型",
+      "source": "user"
+    },
+    "shoe_length_mm": {
+      "value": 130,
+      "source": "default"
+    },
+    "shoe_body_center_y_mm": {
+      "value": -20,
+      "source": "default"
+    },
+    "design_version": {
+      "value": "v1.1.0",
+      "source": "default"
+    }
   },
-  "open_questions": []
+  "open_questions": [
+    {
+      "id": "ear_width_conflict",
+      "question": "耳朵每侧外移8 mm并允许整体宽约236 mm，还是保留整体宽220 mm调整耳形？",
+      "requirement_id": "envelope_mm"
+    },
+    {
+      "id": "shoe_depth_conflict",
+      "question": "鞋身后移且前掌收短后，工作版整体深度约166 mm；采用此鞋型并更新原205 mm深度要求、恢复205 mm深度重新调整鞋型，还是保留205 mm要求并记录本工作版为例外？",
+      "requirement_id": "envelope_mm"
+    }
+  ]
 }

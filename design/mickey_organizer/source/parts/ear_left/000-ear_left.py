@@ -4,7 +4,7 @@ h=param("ear_left_height",82.0)
 t=param("ear_left_thickness",12.0)
 rim=param("ear_left_rim",2.0)
 # Fan contour traced by proportion from reference_photo.
-pts=[(-.50,.58),(-.22,.89),(.04,1),(.30,.91),(.48,.65),(.50,.31),(.36,.08),(.02,0),(-.30,.05),(-.45,.28)]
+pts=[(-.50,.58),(-.23,.90),(.06,1),(.30,.91),(.46,.66),(.50,.34),(.43,.15),(.20,.04),(-.08,0),(-.37,.12)]
 face=Face(Wire([Spline(*[(x*w*-1,0,z*h) for x,z in pts],periodic=True)]))
 bb=face.bounding_box()
 face=scale(face,by=(w/bb.size.X,1,h/bb.size.Z))
