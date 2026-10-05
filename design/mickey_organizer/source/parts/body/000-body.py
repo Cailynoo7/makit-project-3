@@ -189,5 +189,164 @@ def smooth_base(shape,reference,width,depth,height):
     return result
 
 body=smooth_base(body,outer,body_width,body_depth,body_height)
+pin_d=param("badge_pin_diameter",5.0)
+pin_l=param("badge_pin_length",3.0)
+pin_x=param("badge_pin_x",0.0)
+pin_z=param("badge_pin_z",0.0)
+badge_sy=param("badge_shell_center_y",91.0)
+badge_sz=param("badge_shell_base_z",-35.0)
+socket_clearance=param("body_badge_socket_clearance",0.2)
+socket_end_clearance=param("body_badge_socket_end_clearance",0.2)
+assert min(pin_d,pin_l)>0 and min(socket_clearance,socket_end_clearance)>=0
+
+def pin_frame(surface,x,z,depth):
+    probe=IntCurvesFace_ShapeIntersector()
+    probe.Load(surface.wrapped,1e-7)
+    probe.Perform(gp_Lin(gp_Pnt(x,-depth*2,z),gp_Dir(0,1,0)),0,depth*4)
+    assert probe.NbPnt()>=2
+    i=min(range(1,probe.NbPnt()+1),key=lambda i:probe.Pnt(i).Y())
+    point=Vector(probe.Pnt(i).X(),probe.Pnt(i).Y(),probe.Pnt(i).Z())
+    normal=Face(probe.Face(i)).normal_at(point)
+    inward=normal if normal.Y>0 else -normal
+    return point,inward.normalized()
+
+root,axis=pin_frame(outer,pin_x,pin_z-badge_sz,body_depth)
+socket_radius=pin_d/2+socket_clearance
+socket_depth=pin_l+socket_end_clearance
+start_extension=body_depth # cutter starts well outside the curved shell
+socket=Plane(origin=root-axis*start_extension,z_dir=axis).location*Cylinder(socket_radius,start_extension+socket_depth,align=(Align.CENTER,Align.CENTER,Align.MIN))
+assert (socket & inner).volume<1e-7, "badge socket must remain blind"
+body=body-socket
+assert body.is_valid and len(body.solids())==1
+# Check the complete closing disk against the original cavity, including its outer edge.
+end_plane=Plane(origin=root+axis*socket_depth,z_dir=axis)
+end_disk=end_plane.location*Circle(socket_radius)
+closing_wall=end_disk.distance_to(inner)
+assert closing_wall>=1.2, f"badge socket closing wall too thin: {closing_wall}"
+
+# Matched blind sockets for both independently adjustable rectangular ear tongues.
+
+from OCP.IntCurvesFace import IntCurvesFace_ShapeIntersector
+from OCP.gp import gp_Lin,gp_Pnt,gp_Dir
+def ear_joint_frame(surface,side,y,z,width):
+    centre=surface.bounding_box().center().X
+    probe=IntCurvesFace_ShapeIntersector()
+    probe.Load(surface.wrapped,1e-7)
+    probe.Perform(gp_Lin(gp_Pnt(centre-width*2,y,z),gp_Dir(1,0,0)),0,width*4)
+    assert probe.NbPnt()>=2
+    i=min(range(1,probe.NbPnt()+1),key=lambda j:side*-probe.Pnt(j).X())
+    root=Vector(probe.Pnt(i).X(),probe.Pnt(i).Y(),probe.Pnt(i).Z())
+    normal=Face(probe.Face(i)).normal_at(root)
+    inward=normal if normal.X*side<0 else -normal
+    inward=inward.normalized()
+    across=Vector(0,1,0)
+    across=(across-inward*inward.dot(across)).normalized()
+    return root,inward,across
+
+ear_socket_clearance=param("body_ear_socket_clearance",0.2)
+ear_socket_end_clearance=param("body_ear_socket_end_clearance",0.1)
+assert min(ear_socket_clearance,ear_socket_end_clearance)>=0
+ear_joint_specs=[]
+
+tw=param("ear_left_tongue_width",4.0)
+th=param("ear_left_tongue_height",4.0)
+tl=param("ear_left_tongue_length",3.0)
+ty=param("ear_left_tongue_y",2.5)
+tz=param("ear_left_tongue_z",32.0)
+ex=param("ear_left_shell_center_x",74.0)
+ey=param("ear_left_shell_center_y",-5.0)
+ez=param("ear_left_shell_base_z",-126.0)
+assert min(tw,th,tl)>0
+root,axis,across=ear_joint_frame(outer,-1,ty-ey,tz-ez,body_width)
+slot_depth=tl+ear_socket_end_clearance
+slot_w=tw+2*ear_socket_clearance
+slot_h=th+2*ear_socket_clearance
+slot=Plane(origin=root-axis*body_width,x_dir=across,z_dir=axis).location*Box(slot_w,slot_h,body_width+slot_depth,align=(Align.CENTER,Align.CENTER,Align.MIN))
+assert (slot & inner).volume<1e-7, "ear_left socket must not enter cavity"
+removed=(slot & body).volume
+assert removed>tw*th*tl*.5, "ear_left socket must open on the body"
+end_face=Plane(origin=root+axis*slot_depth,x_dir=across,z_dir=axis).location*Rectangle(slot_w,slot_h)
+remaining_wall=end_face.distance_to(inner)
+assert remaining_wall>=1.2, f"ear_left socket closing wall too thin: {remaining_wall}"
+body=body-slot
+assert body.is_valid and len(body.solids())==1
+ear_joint_specs.append((root,axis,remaining_wall))
+
+tw=param("ear_right_tongue_width",4.0)
+th=param("ear_right_tongue_height",4.0)
+tl=param("ear_right_tongue_length",3.0)
+ty=param("ear_right_tongue_y",2.5)
+tz=param("ear_right_tongue_z",32.0)
+ex=param("ear_right_shell_center_x",-74.0)
+ey=param("ear_right_shell_center_y",-5.0)
+ez=param("ear_right_shell_base_z",-126.0)
+assert min(tw,th,tl)>0
+root,axis,across=ear_joint_frame(outer,1,ty-ey,tz-ez,body_width)
+slot_depth=tl+ear_socket_end_clearance
+slot_w=tw+2*ear_socket_clearance
+slot_h=th+2*ear_socket_clearance
+slot=Plane(origin=root-axis*body_width,x_dir=across,z_dir=axis).location*Box(slot_w,slot_h,body_width+slot_depth,align=(Align.CENTER,Align.CENTER,Align.MIN))
+assert (slot & inner).volume<1e-7, "ear_right socket must not enter cavity"
+removed=(slot & body).volume
+assert removed>tw*th*tl*.5, "ear_right socket must open on the body"
+end_face=Plane(origin=root+axis*slot_depth,x_dir=across,z_dir=axis).location*Rectangle(slot_w,slot_h)
+remaining_wall=end_face.distance_to(inner)
+assert remaining_wall>=1.2, f"ear_right socket closing wall too thin: {remaining_wall}"
+body=body-slot
+assert body.is_valid and len(body.solids())==1
+ear_joint_specs.append((root,axis,remaining_wall))
+
+
+# Two curved blind sockets matched to the extended upper leg roots.
+leg_socket_clearance=param("body_leg_socket_clearance",0.2)
+assert leg_socket_clearance>=0
+leg_host=smooth_base(outer,outer,body_width,body_depth,body_height)
+
+lw=param("leg_left_width",43.0)
+ld=param("leg_left_depth",43.0)
+lh=param("leg_left_height",42.0)
+ls_x=param("leg_left_shell_center_x",52.0)
+ls_y=param("leg_left_shell_center_y",-5.0)
+ls_z=param("leg_left_shell_base_z",16.0)
+root_up=param("leg_left_root_extension",3.0)
+assert min(lw,ld,lh,root_up)>0
+# The corresponding leg's host offset gives its exact placement in the body frame.
+raw_socket=Pos(-ls_x,-ls_y,-ls_z)*loft([
+    Ellipse(lw*.48+leg_socket_clearance,ld*.48+leg_socket_clearance),
+    Pos(0,0,lh*.12)*Ellipse(lw/2+leg_socket_clearance,ld/2+leg_socket_clearance),
+    Pos(0,0,lh)*Ellipse(lw*.52+leg_socket_clearance,ld*.52+leg_socket_clearance)])
+socket=raw_socket-Pos(0,0,root_up)*leg_host
+assert socket.is_valid and len(socket.solids())==1
+assert (socket & inner).volume<1e-7, "leg_left root socket must remain blind"
+socket_to_cavity=socket.distance_to(inner)
+assert socket_to_cavity>=1.2, f"leg_left socket remaining wall: {socket_to_cavity}"
+removed=(socket & body).volume
+assert removed>lw*ld*root_up*.25, "leg_left root socket was not cut"
+body=body-socket
+assert body.is_valid and len(body.solids())==1
+
+lw=param("leg_right_width",43.0)
+ld=param("leg_right_depth",43.0)
+lh=param("leg_right_height",42.0)
+ls_x=param("leg_right_shell_center_x",-52.0)
+ls_y=param("leg_right_shell_center_y",-5.0)
+ls_z=param("leg_right_shell_base_z",16.0)
+root_up=param("leg_right_root_extension",3.0)
+assert min(lw,ld,lh,root_up)>0
+# The corresponding leg's host offset gives its exact placement in the body frame.
+raw_socket=Pos(-ls_x,-ls_y,-ls_z)*loft([
+    Ellipse(lw*.48+leg_socket_clearance,ld*.48+leg_socket_clearance),
+    Pos(0,0,lh*.12)*Ellipse(lw/2+leg_socket_clearance,ld/2+leg_socket_clearance),
+    Pos(0,0,lh)*Ellipse(lw*.52+leg_socket_clearance,ld*.52+leg_socket_clearance)])
+socket=raw_socket-Pos(0,0,root_up)*leg_host
+assert socket.is_valid and len(socket.solids())==1
+assert (socket & inner).volume<1e-7, "leg_right root socket must remain blind"
+socket_to_cavity=socket.distance_to(inner)
+assert socket_to_cavity>=1.2, f"leg_right socket remaining wall: {socket_to_cavity}"
+removed=(socket & body).volume
+assert removed>lw*ld*root_up*.25, "leg_right root socket was not cut"
+body=body-socket
+assert body.is_valid and len(body.solids())==1
+
 body.color=Color(.34,.012,.045)
 publish("body",body,"酒红收纳盒身",material="resin")

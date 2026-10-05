@@ -29,7 +29,7 @@
       "source": "user"
     },
     "wall_thickness_mm": {
-      "value": 4.5,
+      "value": 5.5,
       "source": "user"
     },
     "cavity_shape": {
@@ -61,7 +61,7 @@
       "source": "user"
     },
     "base_thickness_mm": {
-      "value": 4,
+      "value": 5,
       "source": "default"
     },
     "back_shape": {
@@ -77,7 +77,7 @@
       "source": "default"
     },
     "assembly": {
-      "value": "分色组件采用名义接触表达；鞋子分为黄色上部和黑色下部，无螺丝；用于外观设计评审",
+      "value": "双腿上端向上3 mm插入盒底曲面凹槽并在槽底接触，下端向下5 mm插入鞋槽；双耳矩形榫与头部盲槽装配，球饰定位柱与盒身盲孔装配；侧间隙默认每侧0.2 mm，耳槽端面余量0.1 mm、球饰孔底余量0.2 mm；无螺丝，腿与盒身独立",
       "source": "default"
     },
     "shoe_position": {
@@ -93,7 +93,7 @@
       "source": "default"
     },
     "design_version": {
-      "value": "v1.2.27",
+      "value": "v1.2.32",
       "source": "default"
     },
     "shoe_toe_bump_mm": {
@@ -255,7 +255,7 @@
       "source": "user"
     },
     "badge_shape": {
-      "value": "球形外露曲面，隐藏的后部按盒身外曲面布尔裁切，保留独立个体",
+      "value": "球形外露曲面，隐藏后部按盒身曲面裁切，接触处带直径5 mm、长3 mm圆柱定位柱，独立保留",
       "source": "user"
     },
     "badge_diameter_mm": {
@@ -279,7 +279,7 @@
       "source": "user"
     },
     "badge_connection": {
-      "value": "后移与盒身接触后做布尔裁切，球饰保持独立实体",
+      "value": "球饰后移后贴合盒身，背面定位柱插入盒身相应布尔装配孔，球饰保持独立实体",
       "source": "user"
     },
     "body_bottom_blend_height_mm": {
@@ -293,6 +293,96 @@
     "body_main_height_mm": {
       "value": 190,
       "source": "research"
+    },
+    "leg_downward_extension_mm": {
+      "value": 5,
+      "source": "user"
+    },
+    "leg_shoe_assembly": {
+      "value": "两条腿从原底端向下延伸5 mm，在双鞋筒内布尔挖出对应装配槽，保留腿与鞋为独立实体",
+      "source": "user"
+    },
+    "leg_shoe_socket_radial_clearance_mm": {
+      "value": 0.2,
+      "source": "default"
+    },
+    "badge_pin_diameter_mm": {
+      "value": 5,
+      "source": "user"
+    },
+    "badge_pin_length_mm": {
+      "value": 3,
+      "source": "user"
+    },
+    "badge_pin_joint": {
+      "value": "球饰与肚子接触面增加圆柱定位柱，盒身相应位置布尔挖出装配槽；定位柱与球饰一体，球饰与盒身保持独立",
+      "source": "user"
+    },
+    "badge_socket_radial_clearance_mm": {
+      "value": 0.2,
+      "source": "default"
+    },
+    "badge_socket_end_clearance_mm": {
+      "value": 0.2,
+      "source": "default"
+    },
+    "ear_head_joint": {
+      "value": "两侧耳朵与头部接触位置中间各增加一个小长方体定位榫，头部对应位置布尔挖出凹槽，槽尽量不穿透内腔",
+      "source": "user"
+    },
+    "ear_tongue_size_mm": {
+      "value": {
+        "width": 4,
+        "height": 4,
+        "insertion_length": 3
+      },
+      "source": "default"
+    },
+    "ear_socket_radial_clearance_mm": {
+      "value": 0.2,
+      "source": "default"
+    },
+    "ear_socket_end_clearance_mm": {
+      "value": 0.1,
+      "source": "default"
+    },
+    "ear_socket_position_mm": {
+      "value": {
+        "ear_local_y": 2.5,
+        "ear_local_z": 32,
+        "global_y": 7.5,
+        "global_z": 258,
+        "x": "derived at left and right head surface"
+      },
+      "source": "default"
+    },
+    "body_wall_increase_mm": {
+      "value": 1,
+      "source": "user"
+    },
+    "body_wall_thickening_direction": {
+      "value": "盒身主体整体向内增厚1 mm，不往外增厚",
+      "source": "user"
+    },
+    "cavity_floor_global_z_mm": {
+      "value": 125,
+      "source": "research"
+    },
+    "leg_root_upward_extension_mm": {
+      "value": 3,
+      "source": "user"
+    },
+    "leg_body_joint": {
+      "value": "两条腿根部向上延伸3 mm，盒身相应位置布尔挖出匹配凹槽；腿和盒身保持独立",
+      "source": "user"
+    },
+    "leg_body_socket_side_clearance_mm": {
+      "value": 0.2,
+      "source": "default"
+    },
+    "leg_body_socket_floor_contact": {
+      "value": "曲面槽底与腿根端面名义接触，轴向余量0 mm",
+      "source": "default"
     }
   },
   "open_questions": [

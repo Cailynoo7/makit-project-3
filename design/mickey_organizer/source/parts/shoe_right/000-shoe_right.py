@@ -105,6 +105,22 @@ assert len(shoe.solids())==1 and shoe.is_valid
 # Shared footprint dimensions drive both sections; sole height and R4 are the lower section's dimensions.
 shoe_top=upper+cuff
 shoe_sole=base
+# Socket follows the matching leg's lower footprint and insertion depth.
+leg_w=param("leg_right_width",43.0)
+leg_d=param("leg_right_depth",43.0)
+insertion=param("leg_right_insertion_depth",5.0)
+clearance=param("shoe_right_leg_socket_clearance",0.2)
+assert clearance>=0 and 0<insertion<ch
+socket_profile=offset(Ellipse(leg_w*.48,leg_d*.48),amount=clearance)
+socket_bottom=cz+ch-insertion
+socket=Pos(0,cy,socket_bottom)*extrude(socket_profile,amount=insertion+1.0)
+before_socket=shoe_top.volume
+shoe_top=shoe_top-socket
+assert before_socket-shoe_top.volume>1
+floors=[f for f in shoe_top.faces() if f.geom_type==GeomType.PLANE and abs(f.bounding_box().min.Z-socket_bottom)<1e-6 and abs(f.bounding_box().max.Z-socket_bottom)<1e-6]
+assert len(floors)==1, "socket must have one flat assembly floor"
+assert abs(floors[0].bounding_box().size.X-(leg_w*.96+2*clearance))<1e-5
+assert abs(floors[0].bounding_box().size.Y-(leg_d*.96+2*clearance))<1e-5
 assert shoe_top.is_valid and shoe_sole.is_valid
 assert len(shoe_top.solids())==1 and len(shoe_sole.solids())==1
 assert abs(shoe_top.bounding_box().min.Z-sole)<0.001

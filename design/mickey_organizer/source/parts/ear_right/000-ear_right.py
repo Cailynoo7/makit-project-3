@@ -121,5 +121,38 @@ def belly_outer(width,depth,height):
 host=Pos(sx,sy,sz)*belly_outer(bw,bd,bh)
 ear=ear-host
 assert ear.is_valid and len(ear.solids())==1
+
+tongue_w=param("ear_right_tongue_width",4.0)
+tongue_h=param("ear_right_tongue_height",4.0)
+tongue_l=param("ear_right_tongue_length",3.0)
+tongue_y=param("ear_right_tongue_y",2.5)
+tongue_z=param("ear_right_tongue_z",32.0)
+assert min(tongue_w,tongue_h,tongue_l)>0
+
+from OCP.IntCurvesFace import IntCurvesFace_ShapeIntersector
+from OCP.gp import gp_Lin,gp_Pnt,gp_Dir
+def ear_joint_frame(surface,side,y,z,width):
+    centre=surface.bounding_box().center().X
+    probe=IntCurvesFace_ShapeIntersector()
+    probe.Load(surface.wrapped,1e-7)
+    probe.Perform(gp_Lin(gp_Pnt(centre-width*2,y,z),gp_Dir(1,0,0)),0,width*4)
+    assert probe.NbPnt()>=2
+    i=min(range(1,probe.NbPnt()+1),key=lambda j:side*-probe.Pnt(j).X())
+    root=Vector(probe.Pnt(i).X(),probe.Pnt(i).Y(),probe.Pnt(i).Z())
+    normal=Face(probe.Face(i)).normal_at(root)
+    inward=normal if normal.X*side<0 else -normal
+    inward=inward.normalized()
+    across=Vector(0,1,0)
+    across=(across-inward*inward.dot(across)).normalized()
+    return root,inward,across
+
+root,axis,across=ear_joint_frame(host,1,tongue_y,tongue_z,bw)
+embed=max(tongue_w,tongue_h)
+tongue=Plane(origin=root-axis*embed,x_dir=across,z_dir=axis).location*Box(tongue_w,tongue_h,embed+tongue_l,align=(Align.CENTER,Align.CENTER,Align.MIN))
+old_volume=ear.volume
+ear=ear+tongue
+assert ear.is_valid and len(ear.solids())==1, "ear tongue must fuse to its own ear"
+assert ear.volume-old_volume>tongue_w*tongue_h*tongue_l*.5, "ear tongue extension is too small"
+
 ear.color=Color(.018,.018,.022)
 publish("ear_right",ear,"右侧大耳朵",material="resin")

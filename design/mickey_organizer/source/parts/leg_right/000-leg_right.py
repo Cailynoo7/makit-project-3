@@ -8,6 +8,8 @@ bh=param("body_height",190.0)
 sx=param("leg_right_shell_center_x",-52.0)
 sy=param("leg_right_shell_center_y",0.0)
 sz=param("leg_right_shell_base_z",16.0)
+insertion=param("leg_right_insertion_depth",5.0)
+assert insertion>0
 leg=loft([Ellipse(w*.48,d*.48),Pos(0,0,h*.12)*Ellipse(w/2,d/2),Pos(0,0,h)*Ellipse(w*.52,d*.52)])
 p=[(0,.36,.42),(.025,.65,.64),(.095,.89,.87),(.23,1,1),(.48,.94,.96),(.70,.83,.86),(.84,.75,.75),(.92,.60,.58),(.975,.35,.32),(1,.04,.04)]
 body_lower_front_extension=param("body_lower_front_extension",5.0)
@@ -111,7 +113,22 @@ def smooth_base(shape,reference,width,depth,height):
 
 base=belly_outer(bw,bd,bh)
 host=Pos(sx,sy,sz)*smooth_base(base,base,bw,bd,bh)
-# Nominal contour contact: leg meets the curved shell without entering the cavity.
-leg=leg-host
+# Raise the curved root boundary without changing the exposed leg loft.
+root_up=param("leg_right_root_extension",3.0)
+assert root_up>0
+probe=IntCurvesFace_ShapeIntersector()
+probe.Load(host.wrapped,1e-7)
+probe.Perform(gp_Lin(gp_Pnt(0,0,-bh),gp_Dir(0,0,1)),0,bh*3)
+assert probe.NbPnt()>=2
+old_root_z=min(probe.Pnt(i).Z() for i in range(1,probe.NbPnt()+1))
+leg=leg-Pos(0,0,root_up)*host
+assert leg.is_valid and len(leg.solids())==1
+assert leg.is_inside((0,0,old_root_z+root_up-0.001))
+assert not leg.is_inside((0,0,old_root_z+root_up+0.001))
+# Extend the original lower footprint into the shoe without changing the exposed loft.
+peg=Pos(0,0,-insertion)*extrude(Ellipse(w*.48,d*.48),amount=insertion)
+leg=leg+peg
+assert leg.is_valid and len(leg.solids())==1
+assert abs(leg.bounding_box().min.Z+insertion)<1e-6
 leg.color=Color(.27,.014,.040)
 publish("leg_right",leg,"右侧短腿",material="resin")

@@ -1,26 +1,26 @@
 {
   "designId": "mickey_organizer",
-  "revision": "7b49c0103d57555fb62fdaba00590bf8b5610749d5e12a24ab1d7490b01bffa4",
+  "revision": "2ebf9b67950732392a3d74045354b5c7370c2bd01c3c32792fcb61fdcc77e654",
   "schemaVersion": 2,
-  "exportId": "export-75caa51ad321e2ee249cb8c4458d4a74",
-  "generatedAt": "2026-10-02T14:03:40.203Z",
-  "designSha256": "73920c2a1f80a9d4cccc69e310400636c77dd9235f09da33fa2fec0006991840",
+  "exportId": "export-efa634a43e196c7662e4b7f8d9754c6b",
+  "generatedAt": "2026-10-05T05:54:26.940Z",
+  "designSha256": "501b7c2981cbe78867b2e4ad091ca5a31961ea33937ac0b22f24cf0ecd7ce106",
   "role": "storage_box",
-  "stateHash": "79e95f0167334e71ebd0c7aca73d720d64bbbe1f7ffa465f398d1971e77bce53",
+  "stateHash": "8b87770ddc28eb4fb136cf6d3a518f80c9ea77c628d55e86b3a36c0942ba2558",
   "stateManifest": {
     "schemaVersion": 3,
     "designId": "mickey_organizer",
     "role": "storage_box",
     "design": {
-      "revision": "7b49c0103d57555fb62fdaba00590bf8b5610749d5e12a24ab1d7490b01bffa4",
-      "designSha256": "f7b1404c45771937e95f663f078106102ddd2e1deeb1951823b260d4801e771a",
-      "manifestSha256": "d69a099ca2c23e4e1d5e02962c7306cc215028b4ab7ab8762f3998e9336c851b",
-      "stepSha256": "61f08b48fdc4c55878419964e94d74ab495ad2f1b59dcb1e195a15130cab8d26",
+      "revision": "2ebf9b67950732392a3d74045354b5c7370c2bd01c3c32792fcb61fdcc77e654",
+      "designSha256": "f777b5c37bbf53e21d3f4ebcc33a53025fdeae4bc3628bd58c4c92d5cc79dbbf",
+      "manifestSha256": "c1be8fa45c31969e93a8dd3e9ad7ca730309078ebf182cd17b96a39a33854384",
+      "stepSha256": "b9b1b784da11f3a190c061cd9566afa5517d54076efbaade565324ba4c4638f2",
       "pcbReleases": []
     },
     "brief": {
       "path": "design/mickey_organizer/README.md",
-      "sha256": "ef47c092aa486bb442dc387d740260841a6710cc729d96101f104ee381ae9606"
+      "sha256": "f64bca01ec6be51481718f65ad553f04335074f571aef90c598eb7f4f215d34e"
     },
     "requirement": {
       "artifactContractPath": "product/contract.json",
@@ -63,36 +63,36 @@
         "step"
       ]
     },
-    "stateHash": "79e95f0167334e71ebd0c7aca73d720d64bbbe1f7ffa465f398d1971e77bce53"
+    "stateHash": "8b87770ddc28eb4fb136cf6d3a518f80c9ea77c628d55e86b3a36c0942ba2558"
   },
   "buildArtifacts": {
-    "manifestSha256": "d69a099ca2c23e4e1d5e02962c7306cc215028b4ab7ab8762f3998e9336c851b",
-    "stepSha256": "61f08b48fdc4c55878419964e94d74ab495ad2f1b59dcb1e195a15130cab8d26"
+    "manifestSha256": "c1be8fa45c31969e93a8dd3e9ad7ca730309078ebf182cd17b96a39a33854384",
+    "stepSha256": "b9b1b784da11f3a190c061cd9566afa5517d54076efbaade565324ba4c4638f2"
   },
   "exportAlgorithm": {
     "version": 1,
     "bootstrapSha256": "ee3801d485ce9c36c94064620fc14c1fad29a20395abe3cd26ac51a72ac105d1"
   },
   "sourceHashes": {
-    "badge/badge": "8fab9fe9a560552a2e562a7826f0231ad80f9057f0cae947fdaede27d64d0117",
-    "body/body": "4eaff53e1f56526e42d37eebe5b307c10ab065421a5e382200957e17510ec94b",
-    "ear_left/ear_left": "4297f9bc0e6f0a7762fb3735323e25efd5d2cb9d620ab6de673a54b1c65464f3",
-    "ear_right/ear_right": "fdd7957d3527acb27a4bd1ef7461f4f47e81a6f272389d2c10d92d54293be400",
-    "leg_left/leg_left": "ea26e3ae5692ede02b12c72fd9240c0f1bc6ad4175eb8d251667cc00f1f6b6fb",
-    "leg_right/leg_right": "7bd35a5b2b5252297cc668f7f1a0f1641c4b7dd0f9cc7182186369ebfdda9842",
-    "shoe_left/shoe_left": "c688ba7a69b9d3abfe91759053df2c3f6c37c2305312db66e2f6f05b2c2336c7",
-    "shoe_right/shoe_right": "38bd8d6778ac5c5cde69a292dbee0c854f87f2d530bcb3de7cde31d0ae7141e9"
+    "badge/badge": "c0a45e4d2912e3584530b88264ff401797ff96b6863f4d966a3e3653a4a03470",
+    "body/body": "95a1a743d39238a3c13cf3ee02113d6d4c6e7a12129cd5cfd8f7386526f22601",
+    "ear_left/ear_left": "85f4b5d4f1a5c146e452e12322d154eb8d37e0035cfb6df7f6ca831a4ca49865",
+    "ear_right/ear_right": "b9c75acb2dd7f8468231cee2022a88bb662931536863d889b9220ff5a8464501",
+    "leg_left/leg_left": "789f7059c7ff5b35f856be2e740f56d856b6acd33457dc69f9892e2abe0259de",
+    "leg_right/leg_right": "ed5b344484d4c6465d871e28ba8cde532932e9b2bfb6c607a08940417d1419b6",
+    "shoe_left/shoe_left": "263d9fd7e7c2871e457e400214b72f4ae8562ae59866002e24e050fff6ebd572",
+    "shoe_right/shoe_right": "dbf901f816c153c9dc4a08749d0f741c8b2c5efb2ba80d741da1617dc0e978e4"
   },
   "assetHashes": {},
   "shapeHashes": {
-    "badge": "6b23ed5610e7c085caa33963e7bf65e7dc35a8da83fced0d95872ac595c35e5d",
-    "body": "f46af67bd19b05c3d9a3cda75db994b45a230123b663e2f39fb6b9dc1fe7c690",
-    "ear_left": "1c21376de9cb3e92f35d31006b36f5b4880ba38b7fcfa44c25c124af9a6ce28c",
-    "ear_right": "6e47e9810a3acc6d6005835051371e61edc2f0de2b88cc3572311999e42b4233",
-    "leg_left": "e495b57480610a33fe1f5e72fab75a65d7ec4b1f3430a6c4d013e167ab074e09",
-    "leg_right": "e7042a219350232a55b4467fc597dfd9260fafcdabd1aa53e687916ce001c116",
-    "shoe_left": "017ad521b170ec47f73c0276aee2e48dd2324f735822372e37ca95afee25ba1d",
-    "shoe_right": "53560ee61743d917dab63155506c7c3e49ce5796d3e6f6ba7440123059a8d8b2",
+    "badge": "5bb9e1f61fe20ff0c7b925db78ccf9ea094e46f89733b48845a57d3e35b3f8d6",
+    "body": "008987d0cd62b9a37ecfe6220c986c95b19a6c43a5ddabbf658be384e8fb306f",
+    "ear_left": "517e29dc1a77fbd8f0e5acf4c552d9bf8c97585362e8d0ef0bd682b764f90866",
+    "ear_right": "c574a7b8389072cb1b163010ee9e5ec1659598372516e37fc92715f2691ed06c",
+    "leg_left": "46bf4e6508d33b9231f8b4451e89aaab10627c6af060095b6622d9ec894074ed",
+    "leg_right": "b6f23441230cf9c8ad74005dbbb44b9c41ed235d1dacec411e75e67a3c0783f2",
+    "shoe_left": "9077ed236c33b9d1bf6900c4cb3664cbcc1ddbd5f1b6998db3ebd2c0a24d9cd2",
+    "shoe_right": "4f4068b45c60d7c1e54488baec950a7791f6b8cadb1df8d2b766c468e0f2226c",
     "sole_left": "740203435ec51c8716e37d73051f6f438e49adf2faba68d95c44aae79a9cecfa",
     "sole_right": "5f81f91ed49754ed8d76b64e226525577b88285cb0062cf9875508af2937537e"
   },
@@ -105,10 +105,10 @@
   },
   "artifacts": [
     {
-      "path": "manufacturing/mickey_organizer/releases/export-75caa51ad321e2ee249cb8c4458d4a74/model.step",
+      "path": "manufacturing/mickey_organizer/releases/export-efa634a43e196c7662e4b7f8d9754c6b/model.step",
       "role": "model/step",
-      "sha256": "61f08b48fdc4c55878419964e94d74ab495ad2f1b59dcb1e195a15130cab8d26",
-      "sizeBytes": 7608771
+      "sha256": "b9b1b784da11f3a190c061cd9566afa5517d54076efbaade565324ba4c4638f2",
+      "sizeBytes": 8132023
     }
   ],
   "interference": {
@@ -130,9 +130,9 @@
     "algorithm": "hmac-sha256",
     "keyId": "e9b55f87efef30a14ecc98dacc2991cb",
     "projectId": "75f6be10-f41b-47d6-a00d-8f53e5e4e33c",
-    "receiptPath": "manufacturing/mickey_organizer/releases/export-75caa51ad321e2ee249cb8c4458d4a74/receipt.json",
-    "payloadSha256": "279fdadad26ab180edd160cd0c1568d5fc35c66ece00ed84cdde56fd7d277020",
-    "mac": "64d39e217a5d888f11710ec0b17beffcccc66835e5a3cdd7523311c50af1cb73"
+    "receiptPath": "manufacturing/mickey_organizer/releases/export-efa634a43e196c7662e4b7f8d9754c6b/receipt.json",
+    "payloadSha256": "c8c49c44f9510d41a3a62dfe081518fc022f4801da411539c29e04680fc21417",
+    "mac": "a14e27e12fecc3c0eff4b5a986e0f582d9ff500764419c4e48120ce2faed2fb1"
   },
   "status": "handoff"
 }

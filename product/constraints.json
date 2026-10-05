@@ -6,17 +6,17 @@
     "height": 300
   },
   "body_height": 193,
-  "wall_thickness": 4.5,
+  "wall_thickness": 5.5,
   "cavity_floor_raise": 20,
   "cavity_blend_radius": 12,
   "lip_roundover": 1.2,
   "leg_axis_y": 5,
-  "base_thickness": 4,
+  "base_thickness": 5,
   "front_axis": "-Y",
   "up_axis": "+Z",
   "electronics": [],
   "fasteners": [],
-  "connection_strategy": "free cosmetic nominal contacts at ear roots, legs and boolean-trimmed silver sphere; shoe upper and black sole share a Z=8 mm face",
+  "connection_strategy": "custom leg upper roots insert +3 mm into body blind sockets with curved floor contact; lower ends insert 5 mm into shoes; ear/head rectangular tongues and badge locating pin into blind slots; shoe upper/sole meet at Z=8 mm; no screws",
   "reference": "reference_photo",
   "shoe_length": 135,
   "shoe_body_center_y": -12.5,
@@ -90,7 +90,7 @@
   "opening_width_definition": "derived from the reference side curve intersecting the current outer body",
   "body_lower_front_extension": 5,
   "body_belly_groove": false,
-  "badge_shape": "spherical exterior, hidden rear trimmed by the body exterior; separate solid",
+  "badge_shape": "spherical exterior with integral cylindrical locating pin; rear contact surface trimmed to body exterior; separate from body",
   "badge_diameter": 26,
   "badge_center": [
     0,
@@ -101,5 +101,97 @@
   "body_bottom_blend_height": 12,
   "body_bottom_surface": "no circular planar underside; quintic rational NURBS dome with 3 mm downward bulge, C2-matched to original body at local Z=12 mm after linear height reparameterisation; lowest global Z=97 mm",
   "body_main_height": 190,
-  "body_bottom_bulge": 3
+  "body_bottom_bulge": 3,
+  "leg_shoe_joint": {
+    "insertion_depth": 5,
+    "socket_depth": 5,
+    "peg_size": {
+      "width": 41.28,
+      "depth": 41.28
+    },
+    "socket_size": {
+      "width": 41.68,
+      "depth": 41.68
+    },
+    "radial_clearance": 0.2,
+    "bottom_clearance": 0,
+    "socket_top_z": 84,
+    "socket_bottom_z": 79,
+    "axis_positions": [
+      [
+        -52,
+        5
+      ],
+      [
+        52,
+        5
+      ]
+    ],
+    "clearance_source": "default",
+    "insertion_depth_source": "user"
+  },
+  "badge_joint": {
+    "implementation": "free",
+    "pin_diameter": 5,
+    "pin_length": 3,
+    "socket_diameter": 5.4,
+    "socket_depth_at_contact_centre": 3.2,
+    "radial_clearance": 0.2,
+    "end_clearance": 0.2,
+    "closing_wall_min_asserted": 1.2,
+    "axis": "local inward normal at body front X=0,Z=135 mm",
+    "length_definition": "from centre of original curved contact along pin axis; root conforms to curved surface",
+    "pin_source": "user",
+    "clearances_source": "default",
+    "body_and_badge_separate": true
+  },
+  "ear_head_joints": {
+    "quantity": 2,
+    "implementation": "free rectangular tongues fused to ears and blind slots cut in body",
+    "tongue_width": 4,
+    "tongue_height": 4,
+    "tongue_insertion_length": 3,
+    "slot_width": 4.4,
+    "slot_height": 4.4,
+    "slot_depth_at_contact_centre": 3.1,
+    "side_clearance": 0.2,
+    "end_clearance": 0.1,
+    "closing_wall_min_asserted": 1.2,
+    "joint_centres": {
+      "ear_local_y": 2.5,
+      "ear_local_z": 32,
+      "global_y": 7.5,
+      "global_z": 258,
+      "global_x": "from left and right body exterior intersection"
+    },
+    "axis": "local inward surface normals; rectangle width follows projected global Y direction",
+    "dimensions_source": "default",
+    "ears_and_body_separate": true
+  },
+  "body_wall_thickening_direction": "inward only, from 4.5 to 5.5 mm; external form parameters unchanged",
+  "cavity_floor_global_z": 125,
+  "cavity_floor_local_z": 25,
+  "leg_body_joints": {
+    "quantity": 2,
+    "implementation": "free curved root insertion into blind sockets",
+    "root_upward_extension": 3,
+    "extension_source": "user",
+    "side_clearance": 0.2,
+    "side_clearance_source": "default",
+    "floor_clearance": 0,
+    "root_boundary_definition": "original body exterior translated +3 mm along Z, intersected with unchanged leg loft",
+    "socket_definition": "same loft with 0.2 mm larger section radii, trimmed by same +3 mm exterior",
+    "leg_axes": [
+      [
+        -52,
+        5
+      ],
+      [
+        52,
+        5
+      ]
+    ],
+    "closing_wall_min_asserted": 1.2,
+    "body_and_legs_separate": true
+  }
 }
