@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "units": "mm",
-  "coordinateFrame": "replicator-world-z-up",
+  "coordinateFrame": "makit-world-z-up",
   "targets": [
     {
       "id": "body",
@@ -123,7 +123,7 @@
       "label": "酒红收纳盒身",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "008987d0cd62b9a37ecfe6220c986c95b19a6c43a5ddabbf658be384e8fb306f",
+      "shapeHash": "338722dce681f9b49583e2652afc27770e0ab94ab6c47783c0ccfd09f079015f",
       "transform": {
         "positionMm": [
           0,
@@ -150,7 +150,7 @@
       "label": "左侧大耳朵",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "517e29dc1a77fbd8f0e5acf4c552d9bf8c97585362e8d0ef0bd682b764f90866",
+      "shapeHash": "e4091140022b778e5b79c53eb6e6b1a064aece73962e728fa3d8c07ca5c5a051",
       "transform": {
         "positionMm": [
           -74,
@@ -177,7 +177,7 @@
       "label": "右侧大耳朵",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "c574a7b8389072cb1b163010ee9e5ec1659598372516e37fc92715f2691ed06c",
+      "shapeHash": "d4b7b8f19f10bac66fe1d1c8f05a4bb3cac9440a63dd8c10b481bcdf1ba1afde",
       "transform": {
         "positionMm": [
           74,
@@ -204,7 +204,7 @@
       "label": "左侧黄色鞋面",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "9077ed236c33b9d1bf6900c4cb3664cbcc1ddbd5f1b6998db3ebd2c0a24d9cd2",
+      "shapeHash": "5edd33633872943eafd05f795d2f15edc9ba86a40fab0f735c793500c790cb07",
       "transform": {
         "positionMm": [
           -52,
@@ -231,7 +231,7 @@
       "label": "左侧黑色鞋底",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "740203435ec51c8716e37d73051f6f438e49adf2faba68d95c44aae79a9cecfa",
+      "shapeHash": "0beb9a3b658e62234da5af48ed09b1bac9880deb29f763b63308260c06679807",
       "transform": {
         "positionMm": [
           -52,
@@ -258,7 +258,7 @@
       "label": "右侧黄色鞋面",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "4f4068b45c60d7c1e54488baec950a7791f6b8cadb1df8d2b766c468e0f2226c",
+      "shapeHash": "1dd7a18159b4d2e8d04696b7bbb22c75aadf21b4dba0a737dddcf525c6271476",
       "transform": {
         "positionMm": [
           52,
@@ -285,7 +285,7 @@
       "label": "右侧黑色鞋底",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "5f81f91ed49754ed8d76b64e226525577b88285cb0062cf9875508af2937537e",
+      "shapeHash": "570155041f761ce6887153e9a68787711bb931e200ea51cce222f4dada0b73e8",
       "transform": {
         "positionMm": [
           52,
@@ -312,7 +312,7 @@
       "label": "左侧短腿",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "46bf4e6508d33b9231f8b4451e89aaab10627c6af060095b6622d9ec894074ed",
+      "shapeHash": "1f13da5ffeec2863f13ba645d55a9ad3d0ef441f42079775423ff7c7c5c88677",
       "transform": {
         "positionMm": [
           -52,
@@ -339,7 +339,7 @@
       "label": "右侧短腿",
       "material": "resin",
       "kind": "generated",
-      "shapeHash": "b6f23441230cf9c8ad74005dbbb44b9c41ed235d1dacec411e75e67a3c0783f2",
+      "shapeHash": "c14f0da379474e0ff28f4b6334aa1f0f0c376d5abab5d5e878084035a58bd64f",
       "transform": {
         "positionMm": [
           52,
@@ -366,7 +366,7 @@
       "label": "银色球饰",
       "material": "stainless_steel",
       "kind": "generated",
-      "shapeHash": "5bb9e1f61fe20ff0c7b925db78ccf9ea094e46f89733b48845a57d3e35b3f8d6",
+      "shapeHash": "95e410be0afcefc2dfbdaeca37d93ce1a2d9beb44abba6838eff47839b612530",
       "transform": {
         "positionMm": [
           0,
@@ -390,7 +390,7 @@
   ],
   "assets": [],
   "fits": [],
-  "updatedAt": "2026-10-05T05:54:26.940Z",
+  "updatedAt": "2026-11-10T03:23:46.383Z",
   "parameters": {
     "body": {
       "body_width": 180,

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "models": [
+    {
+      "file": "models/mickey_organizer.glb",
+      "design": "mickey_organizer"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-# Replicator — managed block, edited by the app. Your own rules go above.
+# Makit — managed block, edited by the app. Your own rules go above.
 /.work/
-/.replicator/
+/.makit/
 .history/
 .DS_Store
 *.tmp-*
@@ -29,10 +29,7 @@ manufacturing/**
 !manufacturing/**/*.json
 !manufacturing/**/*.md
 
-/product/references/uploads/20261002T035048670Z-1-1.png
-/product/references/uploads/20261002T095555281Z-1-20261002175135-409-3.jpg
-/product/references/uploads/20261002T101520078Z-1-20261002181324-411-3.png
-/product/references/uploads/20261002T101616379Z-1-20261002181324-411-3.png
-/product/references/uploads/20261002T115813878Z-1-20261002195534-412-3.png
-/product/references/uploads/20261002T130356875Z-1-20261002181324-411-3.png
-# Replicator — end managed block
+/product/references/**
+!/product/references/**/
+!/product/references/index.json
+# Makit — end managed block

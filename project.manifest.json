@@ -1,5 +1,13 @@
 {
   "formatVersion": 4,
   "name": "米奇小杂物收纳盒",
+  "title": "Mickey-Style Desktop Storage Ornament",
+  "summary": "A Mickey-inspired storage figurine that keeps small everyday items tidy while adding a playful touch to your desk or shelf.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "QY G"
+    }
+  ],
   "artifacts": "rebuild"
 }
